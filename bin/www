@@ -26,9 +26,9 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-if (process.env.NODE_ENV === 'production'){
-  app.use(express.static('frontend/build'))
-}
+// if (process.env.NODE_ENV === 'production'){
+//   app.use(express.static('frontend/build'))
+// }
 
 server.listen(port);
 server.on('error', onError);
