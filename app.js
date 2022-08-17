@@ -12,6 +12,7 @@ var skillsRouter = require('./routes/skills');
 var projectsRouter = require('./routes/projects');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
+const { url } = require('./env/ENV');
 
 var app = express();
 
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
-mongoose.connect("mongodb+srv://saad:3795@cluster0.tnisjzc.mongodb.net/portfolio", {
+mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, (error) => {
