@@ -13,7 +13,7 @@ var projectsRouter = require('./routes/projects');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 
-const MongoURL = process.env.URL || 'mongodb://localhost:27017/portfolio';
+const MongoURL = process.env.DATABASE_URL || 'mongodb://localhost:27017/portfolio';
 
 var app = express();
 
