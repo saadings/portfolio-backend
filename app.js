@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
-mongoose.connect("mongodb://localhost/portfolio", {
+mongoose.connect("mongodb+srv://saad:3795@cluster0.tnisjzc.mongodb.net/portfolio", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, (error) => {
