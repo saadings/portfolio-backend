@@ -12,7 +12,8 @@ var skillsRouter = require('./routes/skills');
 var projectsRouter = require('./routes/projects');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
-const { url } = require('./env/ENV');
+
+const MongoURL = process.env.URL || 'mongodb://localhost:27017';
 
 var app = express();
 
@@ -27,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(url, {
+mongoose.connect(MongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, (error) => {
