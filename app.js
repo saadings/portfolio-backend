@@ -13,8 +13,6 @@ var projectsRouter = require('./routes/projects');
 var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 
-const MongoURL = process.env.DATABASE_URL || 'mongodb://localhost:27017/portfolio';
-
 var app = express();
 
 // view engine setup
@@ -27,16 +25,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, 'public')));
-
-mongoose.connect("mongodb+srv://saad:3795@cluster0.tnisjzc.mongodb.net/portfolio", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}, (error) => {
-    if (error) {
-        console.log("Cannot connect to DB")
-    } else
-        console.log("Connected to DB")
-});
 
 app.use('/', indexRouter);
 app.use('/body', bodyRouter);
